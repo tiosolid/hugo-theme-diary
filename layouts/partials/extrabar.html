@@ -5,7 +5,7 @@
         <div class="gcse-searchbox-only" mobileLayout="true"></div>
         {{ end }}
 
-        {{ if and (not (.Params.disableToC) ) (.IsPage) }}
+        {{ if or (.Params.enableToC) (and (not .Site.Params.disableToC) .IsPage) }}
         <div class="toc">
             {{- partial "toc.html" . -}}
         </div>
