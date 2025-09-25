@@ -32,21 +32,22 @@
                         </time>
                         {{ end }}
 
-                        {{ if .Params.categories }}
-                            <i class="material-icons" style="">folder</i>
-                                <a href="{{ "/categories/" | relLangURL }}{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
+                        {{ if gt .Params.categories 0 }}
+                            {{ $firstCategory := index .Params.categories 0 }}
+                            <i class="material-icons">folder</i>
+                                <a href="{{ "/categories/" | relLangURL }}{{ $firstCategory | urlize }}">{{ $firstCategory }}</a>
                                 &nbsp;
                         {{ end }}
 
                         {{ if gt .Params.tags 0 }}
-                            <i class="material-icons" style="">label</i>
+                            <i class="material-icons">label</i>
                             {{ range .Params.tags }}
                                 <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
                                 &nbsp;
                             {{ end }}
                         {{ end }}
                         {{ if .Site.Params.enableReadingTime }}
-                            <i class="material-icons" style="">schedule</i>
+                            <i class="material-icons">schedule</i>
                             {{ $readTime := mul (div (countwords .Content) 220.0) 60 }}
 
                             {{ $minutes := math.Floor (div $readTime 60) }}
