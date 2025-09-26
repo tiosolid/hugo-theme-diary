@@ -1107,3 +1107,13 @@ mjx-container {
     margin: 10px;
   }
 }
+
+.emoji {
+  display: inline-block;
+  // width: 1.3em;                /* scale with font size */
+  height: 1.3em;
+  vertical-align: -0.2em;    /* adjust baseline alignment */
+  object-fit: contain;
+  // pointer-events: none;      /* avoid accidental clicks/drags */
+  user-select: none;         /* don’t highlight when selecting text */
+}
