@@ -245,23 +245,16 @@ var toggleDarkMode = function () {
   }
 };
 
-let night = document.cookie.replace(
+let nightModeFlag = document.cookie.replace(
   /(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/,
   "$1"
 );
 
-if (night == "") {
-  if (
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  ) {
-    toggleDarkMode();
-  }
-} else {
-  // If night is not empty
-  if (night === "1") {
-    toggleDarkMode();
-  }
+let prefersDarkMode = window.matchMedia &&
+  window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+if ((nightModeFlag === "1") || prefersDarkMode) {
+  toggleDarkMode();
 }
 
 try {

@@ -7,6 +7,10 @@ $dark-mode-text: darken(#fff, 10%);
 $dark-mode-back-container-background: #212121;
 $dark-mode-front-container-background: #282828;
 
+:root {
+  color-scheme: light dark;
+}
+
 body.night {
   background: $dark-mode-back-container-background;
   :root {
