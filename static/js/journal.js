@@ -234,13 +234,13 @@ var toggleDarkMode = function () {
     document.cookie = "night=1;path=/";
     document.body.classList.add("night");
     icon.innerText = "light_mode";
-    icon2.innerText = "light_mode";
+    if (icon2) icon2.innerText = "light_mode";
     setGiscusTheme("dark");
   } else {
     document.cookie = "night=0;path=/";
     document.body.classList.remove("night");
     icon.innerText = "dark_mode";
-    icon2.innerText = "dark_mode";
+    if (icon2) icon2.innerText = "dark_mode";
     setGiscusTheme("light");
   }
 };
@@ -287,11 +287,9 @@ var openDrawer = function () {
     .classList.add("single-column-drawer-container-active");
 };
 
-document
-  .getElementById("nav_dropdown_btn")
-  .addEventListener("click", function () {
-    openDrawer();
-  });
+document.getElementById("nav_dropdown_btn")?.addEventListener("click", function () {
+  openDrawer();
+});
 
 var closeDrawer = function () {
   document.getElementsByTagName("html")[0].style.overflow = "unset";
@@ -303,6 +301,6 @@ var closeDrawer = function () {
     .classList.remove("single-column-drawer-container-active");
 };
 
-document.getElementById("drawer-mask").addEventListener("click", function () {
+document.getElementById("drawer-mask")?.addEventListener("click", function () {
   closeDrawer();
 });
