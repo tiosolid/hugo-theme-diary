@@ -253,9 +253,12 @@ let nightModeFlag = document.cookie.replace(
 let prefersDarkMode = window.matchMedia &&
   window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-if ((nightModeFlag === "1") || prefersDarkMode) {
+if (nightModeFlag === "1") {
+  toggleDarkMode();
+} else if ((nightModeFlag === "") && prefersDarkMode) {
   toggleDarkMode();
 }
+
 
 try {
   document
